@@ -1,18 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/homeparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_home6d_bg1"
+            tools:context=".m.MainActivity">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_setting"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_setting_6d"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_ser"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_ser_6d"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_connection_time"
+                android:layout_width="188dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/ic_the_connection_time"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_ser" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_con"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/ic_home_con_bg"
+                android:padding="2dp"
+                android:src="@drawable/ic_default_native_c"
+                app:layout_constraintBottom_toBottomOf="@id/tvTime"
+                app:layout_constraintRight_toLeftOf="@id/tvTime"
+                app:layout_constraintTop_toTopOf="@id/tvTime" />
+
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="10dp"
+                android:text="00:00:00"
+                android:textColor="#EBD441"
+                android:textSize="28sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_connection_time"
+                tools:text="01:10:23" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/connection"
+                android:layout_width="193dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="248dp"
+                android:background="@drawable/home_connection_bg2"
+                android:paddingEnd="2dp"
+                android:paddingBottom="3dp"
+                android:src="@drawable/home_connection_bg1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/probar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="190dp"
+                android:layout_height="51dp"
+                android:layout_marginBottom="248dp"
+                android:progressDrawable="@drawable/home_pro_bar_bg"
+                app:layout_constraintLeft_toLeftOf="@id/connection"
+                app:layout_constraintTop_toTopOf="@id/connection"
+                 />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="193dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="248dp"
+                android:gravity="center"
+                android:text="Connect"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/setting_layout"
+            layout="@layout/setting_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

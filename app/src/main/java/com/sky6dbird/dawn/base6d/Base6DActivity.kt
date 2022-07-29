@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.sky6dbird.dawn.App6D
 import com.sky6dbird.dawn.common6d.setDensity
 
 /**
@@ -12,6 +13,7 @@ import com.sky6dbird.dawn.common6d.setDensity
  * Describe:
  */
 abstract class Base6DActivity<db : ViewDataBinding>(private val layoutId: Int) : AppCompatActivity() {
+    protected val mApp by lazy { App6D.mApp }
     protected lateinit var dataBinding: db
     protected var isResume = false
     override fun onCreate(savedInstanceState: Bundle?) {

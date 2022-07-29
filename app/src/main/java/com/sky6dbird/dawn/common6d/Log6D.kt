@@ -8,7 +8,7 @@ import com.sky6dbird.dawn.BuildConfig
  * Describe:
  */
 object Log6D {
-    private const val TAG = "OrangeLog"
+    private const val TAG = "DawnLog"
 
     fun i(msg: String) {
         i(TAG, msg)
@@ -31,7 +31,7 @@ object Log6D {
     }
 }
 
-const val AD_TAG = "OrangeAdLog"
+const val AD_TAG = "DawnAdLog"
 fun adLogE(msg: String) {
     Log6D.e(AD_TAG, msg)
 }

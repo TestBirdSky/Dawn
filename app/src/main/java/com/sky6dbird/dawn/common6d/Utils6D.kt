@@ -6,6 +6,14 @@ import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import com.sky6dbird.dawn.App6D
+import com.sky6dbird.dawn.R
+import com.sky6dbird.dawn.common6d.Constants6d.NATION_CANADA
+import com.sky6dbird.dawn.common6d.Constants6d.NATION_FRANCE
+import com.sky6dbird.dawn.common6d.Constants6d.NATION_GERMANY
+import com.sky6dbird.dawn.common6d.Constants6d.NATION_JAPAN
+import com.sky6dbird.dawn.common6d.Constants6d.NATION_SINGAPORE
+import com.sky6dbird.dawn.common6d.Constants6d.NATION_UNITEDKINGDOM
+import com.sky6dbird.dawn.common6d.Constants6d.NATION_UNITEDSTATES
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.BufferedReader
@@ -19,7 +27,7 @@ import kotlin.math.roundToInt
  * Describe:
  */
 object Utils6D {
-    private val mApp by lazy { App6D.mApp}
+    private val mApp by lazy { App6D.mApp }
 
     fun getPackInfo(): PackageInfo {
         val pm = mApp.packageManager
@@ -41,16 +49,18 @@ object Utils6D {
         return false
     }
 
-//    fun getNIconByName(nation: String?): Int {
-//        return when (nation) {
-////            Cons5btants.NATION_GERMANY -> R.drawable.ic_n_circle_germany
-////            Cons5btants.NATION_UNITEDKINGDOM -> R.drawable.ic_n_circleunited_kingdom
-////            Cons5btants.NATION_UNITEDSTATES -> R.drawable.ic_n_circle_unitedstates
-////            Cons5btants.NATION_JAPAN -> R.drawable.ic_n_circle_japan
-////            Cons5btants.NATION_FRANCE -> R.drawable.ic_n_circle_france
-////            else -> R.drawable.ic_default_native
-//        }
-//    }
+    fun getNIconByName(nation: String?): Int {
+        return when (nation) {
+            NATION_GERMANY -> R.drawable.ic_n_circle_germany
+            NATION_FRANCE -> R.drawable.ic_n_circle_france
+            NATION_JAPAN -> R.drawable.ic_n_circle_japan
+            NATION_UNITEDSTATES -> R.drawable.ic_n_circle_unitedstates
+            NATION_UNITEDKINGDOM -> R.drawable.ic_n_circle_unitedkingdom
+            NATION_CANADA -> R.drawable.ic_n_c_canada
+            NATION_SINGAPORE -> R.drawable.ic_n_c_singapore
+            else -> R.drawable.ic_default_native_c
+        }
+    }
 
 
     fun intTimeToStr(time: Long): String {

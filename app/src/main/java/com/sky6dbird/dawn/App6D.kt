@@ -3,6 +3,8 @@ package com.sky6dbird.dawn
 import android.app.ActivityManager
 import android.app.Application
 import android.os.Process
+import com.github.shadowsocks.Core
+import com.sky6dbird.dawn.activity6d.Splash6DActivity
 
 /**
  * Date：2022/7/28
@@ -12,20 +14,18 @@ class App6D :Application() {
     companion object {
         lateinit var mApp: App6D
         var isAppResume = false
-        var isVConnected = false
-        var isRefreshHomeNativeAd = false
-        var resultName = ""
-        var resultCon = ""
-        var connectedTime = -1L
     }
+    var isVConnected = false
+    var isRefreshHomeNativeAd = false
+    var resultCon = ""
+    var connectedTime = -1L
 
     override fun onCreate() {
         super.onCreate()
-//        Core.init(this, Splash5BA::class)
+        Core.init(this, Splash6DActivity::class)
         if (!isBgP()) {
             mApp = this
-//            registerActivityLifecycleCallbacks(ACL5B())
-
+            registerActivityLifecycleCallbacks(ACL6D())
         }
     }
 

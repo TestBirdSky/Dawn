@@ -8,6 +8,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.widget.Toast
+import androidx.annotation.MainThread
+import com.sky6dbird.dawn.activity6d.Splash6DActivity
 
 /**
  * Date：2022/7/28
@@ -71,4 +73,18 @@ fun Activity.setDensity() {
 fun Activity.getPackInfo(): PackageInfo {
     val pm = packageManager
     return pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES)
+}
+
+fun Activity.shareAppDownPath6D() {
+    shareTextToOtherApp("https://play.google.com/store/apps/details?id=${getPackInfo().packageName}")
+}
+
+fun Activity.jumpGooglePlay6d() {
+    val packName = getPackInfo().packageName
+    val intent = Intent(Intent.ACTION_VIEW).apply {
+        data = Uri.parse(
+            "https://play.google.com/store/apps/details?id=$packName"
+        )
+    }
+    startActivity(intent)
 }
